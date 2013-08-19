@@ -1,0 +1,21 @@
+= form_for @slot do |f|
+  - if @slot.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@slot.errors.count, "error")} prohibited this slot from being saved:"
+      ul
+        - @slot.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :possible_downloads
+    = f.number_field :possible_downloads
+  .field
+    = f.label :state
+    = f.text_field :state
+  .field
+    = f.label :size
+    = f.number_field :size
+  .field
+    = f.label :file
+    = f.text_field :file
+  .actions = f.submit 'Save'

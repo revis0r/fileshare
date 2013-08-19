@@ -1,0 +1,32 @@
+ru:
+  controllers:
+    bundles:
+      created: 'Бандл создан'
+      decrypted: 'Доступ разрешен'
+      incorrect_password: 'Неверный пароль'
+    slots:
+      access_denied: 'Доступ запрещен'
+
+  views:
+    layout:
+      title: 'Приватный файлообменник'
+    bundles:
+      show:
+        not_ready: 'Бандл шифруется. Подождите немного и обновите страницу...'
+        copy: 'Копировать'
+        bundle_link: 'Ссылка на бандл'
+        destroy_bundle_link: 'Ссылка на удаление бандла'
+      index:
+        create_errors: 'Возникли проблемы: '
+        remove_slot: 'Удалить'
+        add_slot: 'Добавить файл'
+        generate_password: 'Сгенерировать пароль'
+        create: 'Зашифровать'
+
+  activerecord:
+    attributes:      
+      bundle:
+        text: 'Текст'
+        password: 'Пароль'
+        slots: 'Файлы'
+        possible_downloads: 'Кол-во возможных скачиваний'

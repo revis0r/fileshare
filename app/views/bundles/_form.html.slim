@@ -1,0 +1,37 @@
+= nested_form_for @bundle do |f|
+  - if @bundle.errors.any?
+    #error_explanation
+      h2 = t('views.bundles.create_errors')
+      ul
+        - @bundle.errors.full_messages.each do |message|
+          li = message
+
+  .row
+    .col-6
+      .slots-block
+        = f.fields_for :slots do |s_form|
+          .row.slot
+            .col-8.zero-padding= s_form.file_field :file
+            .col-4= s_form.link_to_remove t('views.bundles.index.remove_slot'), class: 'btn btn-danger btn-xs'
+        = f.link_to_add t('views.bundles.index.add_slot'), :slots, class: 'btn btn-info btn-xs'
+    .col-6
+      .form-group
+        = f.label :text
+        .input-group
+          = f.text_area :text, class: 'form-control', style: 'width:410px;height:40px;', onFocus: "$(this).height('70');", onFocusOut: "$(this).height(40);"
+      .form-group
+        = f.label :password
+        .input-group
+          = f.text_field :password, class: 'form-control', id: 'password-field'
+          span.input-group-btn
+            button.btn.btn-default onClick="$('#password-field').val(generate_password());return false;" type="button" = t('views.bundles.index.generate_password')
+          
+      .form-group
+        = f.label :possible_downloads
+        .input-group
+          = f.text_field :possible_downloads, class: 'form-control', id: 'downloads-input'
+          span.input-group-btn
+            button.btn.btn-default onClick="add_value('#downloads-input', 1);return false;" type="button"   +  
+            button.btn.btn-default onClick="add_value('#downloads-input', -1);return false;" type="button"   -  
+      .form-group
+        = f.submit t('views.bundles.index.create'), class: 'btn btn-primary'

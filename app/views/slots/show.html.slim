@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Possible downloads:
+  = @slot.possible_downloads
+p
+  strong State:
+  = @slot.state
+p
+  strong Size:
+  = @slot.size
+p
+  strong File:
+  = @slot.file
+
+= link_to 'Edit', edit_slot_path(@slot)
+'|
+= link_to 'Back', slots_path

@@ -1,0 +1,19 @@
+- if @bundle.slots.present?
+  h4 Файлы
+  - @bundle.slots.each do |slot|
+    = link_to slot[:file], download_bundle_slot_path(@bundle, slot), target: '_blank'
+    = " (#{number_to_human_size(slot.size)})"
+
+- if @bundle.text.present?
+  h4 Текст
+  .text-box= @bundle.decrypt_text(owner_for?(@bundle))
+
+
+- if owner_for?(@bundle)
+  hr/
+  .form-group
+    = label_tag t('views.bundles.show.bundle_link')
+    = text_field_tag '', bundle_url(@bundle), class: 'form-control input', onClick: "this.select();"
+  .form-group
+    = label_tag t('views.bundles.show.destroy_bundle_link')
+    = text_field_tag '', remove_bundle_url(@bundle), class: 'form-control', onClick: "this.select();"

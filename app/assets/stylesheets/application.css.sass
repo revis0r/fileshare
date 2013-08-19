@@ -1,0 +1,33 @@
+@import twitter/bootstrap
+@import bootstrap/glyphicons
+
+
+@mixin border-radius($radius)
+  @include border-top-radius($radius)
+  @include border-right-radius($radius)
+  @include border-bottom-radius($radius)
+  @include border-left-radius($radius)
+
+body
+  // background: url(/assets/background.png)
+  .container-narrow
+    margin: 0 auto
+    max-width: 900px
+    .slot
+      margin: 5px 0
+
+  .btn
+    font-weight: normal
+
+  .zero-padding
+    padding: 0
+
+  .text-box
+    padding: 10px
+    +border-radius(10px)
+    background: #fff
+    white-space: -moz-pre-wrap /* Firefox */
+    white-space: -pre-wrap /* ancient Opera */
+    white-space: -o-pre-wrap /* newer Opera */
+    white-space: pre-wrap /* Chrome; W3C standard */
+    word-wrap: break-word /* IE */

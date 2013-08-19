@@ -1,0 +1,7 @@
+- if @bundle.ready?
+  - if has_access?(@bundle)
+    = render 'bundles/partials/bundle_content'
+  - else
+    = render 'bundles/partials/check_form'
+- else
+  h4= t('views.bundles.show.not_ready')
