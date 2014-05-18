@@ -39,8 +39,8 @@ gem 'delayed_job_active_record'
 gem 'daemons'
 gem 'state_machine'
 gem 'unicorn'
-gem 'rvm-capistrano'
-gem 'capistrano'
+# gem 'rvm-capistrano'
+# gem 'capistrano'
 gem 'carrierwave'
 
 group :doc do
@@ -50,6 +50,14 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
+end
+
+group :development do
+  # Deploy with Capistrano
+  gem 'capistrano', '~> 3.1.0'
+  gem 'capistrano-rails'
+  gem 'rvm1-capistrano3', require: false
+  gem 'capistrano-bundler'
 end
 
 # Use ActiveModel has_secure_password
