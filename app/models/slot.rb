@@ -52,7 +52,7 @@ class Slot < ActiveRecord::Base
         file.close
       end
       output.write(c.final)
-      output.close
+      output.close(false)
       output.path
     end
 
